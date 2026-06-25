@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Tracker Pakistan - SIM Owner Details and CNIC Verification Online</title>
+    <title>Live Tracker Pakistan - SIM Owner Details & CNIC Verification Online</title>
     <meta name="description" content="Use Sim Live Tracker to find SIM owner details, CNIC verification online, and mobile number tracking in Pakistan. Get real-time data and legal guides.">
     <meta name="keywords" content="Live Tracker, SIM Owner Details, CNIC Verification Online, Mobile Number Tracking, PakData SIM Database, Pakistan Telecom">
     <link rel="canonical" href="https://livetrackingpk.github.io/" />
@@ -41,12 +41,19 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-section { background: #1e3a8a; color: white; padding: 100px 20px; }
+        .hero-section { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; padding: 100px 20px; }
         .loader { border-top-color: #3498db; animation: spinner 1.5s linear infinite; }
         @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .hidden { display: none; }
-        .prose hr { margin: 2rem 0; }
+        .prose h1 { font-size: 2.25rem; font-weight: 800; color: #1e3a8a; margin-bottom: 1.5rem; }
+        .prose h2 { font-size: 1.875rem; font-weight: 700; color: #1e40af; margin-top: 2.5rem; margin-bottom: 1.25rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 0.5rem; }
+        .prose h3 { font-size: 1.5rem; font-weight: 600; color: #2563eb; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose p { font-size: 1.125rem; line-height: 1.75; color: #374151; margin-bottom: 1.25rem; }
+        .prose ul, .prose ol { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+        .prose li { font-size: 1.125rem; color: #374151; margin-bottom: 0.5rem; list-style-type: disc; }
+        .prose hr { margin: 3rem 0; border: 0; border-top: 2px solid #f3f4f6; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -56,10 +63,10 @@
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-blue-600">Live Tracker Pak</h1>
             <nav class="hidden md:flex space-x-6">
-                <a href="#tool" class="hover:text-blue-600">Live Tracker Tool</a>
-                <a href="#guide" class="hover:text-blue-600">Guide</a>
-                <a href="#about" class="hover:text-blue-600">About</a>
-                <a href="#privacy" class="hover:text-blue-600">Privacy</a>
+                <a href="#tool" class="hover:text-blue-600 font-semibold">Live Tracker Tool</a>
+                <a href="#guide" class="hover:text-blue-600 font-semibold">Guide</a>
+                <a href="#about" class="hover:text-blue-600 font-semibold">About</a>
+                <a href="#privacy" class="hover:text-blue-600 font-semibold">Privacy</a>
             </nav>
         </div>
     </header>
@@ -68,15 +75,15 @@
     <section class="hero-section text-center">
         <div class="container mx-auto">
             <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Sim Live Tracker Pakistan</h2>
-            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Track SIM owner details, verify CNIC online, and explore mobile subscriber information instantly.</p>
-            <a href="#tool" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold transition hover:bg-gray-200">Start Tracking Now</a>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">Track SIM owner details, verify CNIC online, and explore mobile subscriber information instantly.</p>
+            <a href="#tool" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold transition hover:bg-gray-100 shadow-lg">Start Tracking Now</a>
         </div>
     </section>
 
     <!-- Tool Section -->
     <section id="tool" class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto bg-gray-100 rounded-2xl p-8 shadow-xl border border-gray-200">
+            <div class="max-w-2xl mx-auto bg-gray-100 rounded-2xl p-8 shadow-2xl border border-gray-200">
                 <h3 class="text-3xl font-bold text-center mb-8 text-blue-700">Sim Live Tracker Tool</h3>
                 
                 <div id="quiz-container">
@@ -84,38 +91,38 @@
                     <div id="step-1" class="quiz-step">
                         <p class="text-lg font-semibold mb-4">1. Ye SIM kis ki hy jis ki ap details nikalna chahtay ho?</p>
                         <div class="space-y-3">
-                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Meri apni SIM hy</button>
-                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Kisi dost ya rishtedar ki hy</button>
-                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Anjan number hy</button>
+                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50 transition">Meri apni SIM hy</button>
+                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50 transition">Kisi dost ya rishtedar ki hy</button>
+                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50 transition">Anjan number hy</button>
                         </div>
                     </div>
 
                     <!-- Step 2 -->
                     <div id="step-2" class="quiz-step hidden">
                         <p class="text-lg font-semibold mb-4">2. Ap kis jaga sy ho Pakistan me?</p>
-                        <input type="text" id="location" placeholder="City Name" class="w-full p-3 rounded-lg border border-gray-300 mb-4">
-                        <button onclick="nextStep(2)" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold">Next</button>
+                        <input type="text" id="location" placeholder="City Name" class="w-full p-3 rounded-lg border border-gray-300 mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
+                        <button onclick="nextStep(2)" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Next</button>
                     </div>
 
                     <!-- Step 3 -->
                     <div id="step-3" class="quiz-step hidden">
                         <p class="text-lg font-semibold mb-4">3. Ap ka SIM network kia hy?</p>
-                        <select id="network" class="w-full p-3 rounded-lg border border-gray-300 mb-4">
+                        <select id="network" class="w-full p-3 rounded-lg border border-gray-300 mb-4 focus:ring-2 focus:ring-blue-500 outline-none">
                             <option>Jazz</option>
                             <option>Zong</option>
                             <option>Telenor</option>
                             <option>Ufone</option>
                         </select>
-                        <button onclick="nextStep(3)" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold">Next</button>
+                        <button onclick="nextStep(3)" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Next</button>
                     </div>
 
                     <!-- Step 4 -->
                     <div id="step-4" class="quiz-step hidden">
                         <p class="text-lg font-semibold mb-4">4. Ap konsi device sy track kr rhy hain?</p>
                         <div class="space-y-3">
-                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Android Mobile</button>
-                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">iPhone / iOS</button>
-                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Computer / Laptop</button>
+                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50 transition">Android Mobile</button>
+                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50 transition">iPhone / iOS</button>
+                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50 transition">Computer / Laptop</button>
                         </div>
                     </div>
 
@@ -123,23 +130,23 @@
                     <div id="step-5" class="quiz-step hidden">
                         <p class="text-lg font-semibold mb-4">5. Kia ap is tool ko sirf legal maqsad ke liye use krain gy?</p>
                         <div class="flex space-x-4">
-                            <button onclick="nextStep(5)" class="flex-1 bg-green-600 text-white py-3 rounded-lg font-bold">Ji Han</button>
-                            <button onclick="alert('Sorry, legal use is mandatory.')" class="flex-1 bg-red-600 text-white py-3 rounded-lg font-bold">Nahi</button>
+                            <button onclick="nextStep(5)" class="flex-1 bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">Ji Han</button>
+                            <button onclick="alert('Sorry, legal use is mandatory.')" class="flex-1 bg-red-600 text-white py-3 rounded-lg font-bold hover:bg-red-700 transition">Nahi</button>
                         </div>
                     </div>
 
                     <!-- Step 6 (Agreement) -->
                     <div id="step-6" class="quiz-step hidden">
                         <p class="text-lg font-semibold mb-4 text-red-600 text-center">Important Agreement</p>
-                        <p class="text-sm mb-6 text-gray-700">Me iqrar krta ho ke me ye details apni zimadari sy nikal rha ho aur iska koi bi galt use nhi kro ga. Agr koi masla hoa tu me khud zimadar ho ga.</p>
-                        <button onclick="nextStep(6)" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-xl">I Agree & Continue</button>
+                        <p class="text-sm mb-6 text-gray-700 leading-relaxed">Me iqrar krta ho ke me ye details apni zimadari sy nikal rha ho aur iska koi bi galt use nhi kro ga. Agr koi masla hoa tu me khud zimadar ho ga.</p>
+                        <button onclick="nextStep(6)" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-xl hover:bg-blue-700 transition shadow-lg">I Agree & Continue</button>
                     </div>
 
                     <!-- Final Step (Input) -->
                     <div id="step-7" class="quiz-step hidden">
                         <p class="text-lg font-semibold mb-4">Enter Mobile Number or CNIC</p>
-                        <input type="text" id="target_id" placeholder="e.g. 03001234567 or 35201..." class="w-full p-4 rounded-lg border-2 border-blue-500 mb-4 text-xl text-center">
-                        <button onclick="startProcess()" class="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-xl">Get Details</button>
+                        <input type="text" id="target_id" placeholder="e.g. 03001234567 or 35201..." class="w-full p-4 rounded-lg border-2 border-blue-500 mb-4 text-xl text-center focus:ring-4 focus:ring-blue-200 outline-none">
+                        <button onclick="startProcess()" class="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-xl hover:bg-green-700 transition shadow-lg">Get Details</button>
                     </div>
 
                     <!-- Processing -->
@@ -155,7 +162,7 @@
                             <p class="font-bold text-yellow-700 text-lg">Result Found!</p>
                             <p class="text-yellow-600 mt-2">Maazrat, abi iska data free me majood nhi hy.</p>
                         </div>
-                        <h4 class="font-bold text-xl mb-4">Real Legal Treeqa (Recommended)</h4>
+                        <h4 class="font-bold text-xl mb-4 text-blue-800">Real Legal Treeqa (Recommended)</h4>
                         <p class="text-gray-700 mb-4">Agar ap kisi SIM ki details nikalna chahtay hain tu nechy diye gaye legal treeqy follow krain:</p>
                         <ul class="list-disc ml-6 space-y-2 text-gray-700">
                             <li><strong>7000 SMS:</strong> Apna CNIC number 7000 pe bhejin (Telenor).</li>
@@ -163,7 +170,7 @@
                             <li><strong>Official App:</strong> Jazz World, Zong App, ya Telenor App use krain.</li>
                             <li><strong>Police Help:</strong> Agr koi tang kr rha hy tu FIA Cyber Crime ya local police sy rabta krain.</li>
                         </ul>
-                        <button onclick="location.reload()" class="mt-8 w-full bg-blue-600 text-white py-3 rounded-lg font-bold">Search Another Number</button>
+                        <button onclick="location.reload()" class="mt-8 w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">Search Another Number</button>
                     </div>
                 </div>
             </div>
@@ -173,7 +180,7 @@
     <!-- Article Content -->
     <section id="guide" class="py-16">
         <div class="container mx-auto px-4 max-w-4xl">
-            <article class="prose prose-blue lg:prose-xl mx-auto">
+            <article class="prose mx-auto">
                 <h1>Live Tracker Pakistan: Complete Guide to SIM Owner Details, CNIC Verification Online & Mobile Number Tracking</h1>
                 
                 <h2>Introduction</h2>
@@ -182,7 +189,7 @@
                 
                 <hr>
 
-                <h1>What Is Live Tracker?</h1>
+                <h2>What Is Live Tracker?</h2>
                 <p>A <strong>Live Tracker</strong> generally refers to a system or platform that helps users verify mobile-related information, identify unknown callers, check SIM registration records, or access telecom verification services.</p>
                 <p>People searching for Live Tracker often want to:</p>
                 <ul>
@@ -195,24 +202,15 @@
                 </ul>
                 <p>The popularity of Live Tracker searches reflects the growing need for digital security and identity verification in Pakistan.</p>
 
-                <h2>Why Is Live Tracker Popular?</h2>
-                <p>Several factors contribute to the increasing interest in Live Tracker services:</p>
-                <ul>
-                    <li>Rising telecom fraud cases</li>
-                    <li>Unwanted calls and spam messages</li>
-                    <li>Identity verification requirements</li>
-                    <li>SIM registration concerns</li>
-                    <li>Security and privacy awareness</li>
-                </ul>
-                <p>As mobile usage continues to grow, users are becoming more interested in checking subscriber information and protecting their personal identities.</p>
+                <h3>Why Is Live Tracker Popular?</h3>
+                <p>Several factors contribute to the increasing interest in Live Tracker services: Rising telecom fraud cases, unwanted calls and spam messages, identity verification requirements, SIM registration concerns, and security and privacy awareness.</p>
 
                 <hr>
 
-                <h1>How SIM Registration Works in Pakistan</h1>
+                <h2>How SIM Registration Works in Pakistan</h2>
                 <p>SIM registration in Pakistan follows a structured process regulated by the Pakistan Telecommunication Authority (PTA). When a user purchases a new SIM card, identity verification is required before activation. The registration process is designed to ensure that each mobile number is linked to a verified identity.</p>
                 
-                <h2>Biometric Verification Process</h2>
-                <p>The biometric verification process includes:</p>
+                <h3>Biometric Verification Process</h3>
                 <ol>
                     <li>CNIC verification</li>
                     <li>Biometric fingerprint authentication</li>
@@ -220,190 +218,66 @@
                     <li>SIM activation</li>
                     <li>Database synchronization</li>
                 </ol>
-                <p>This system helps reduce fraud, unauthorized SIM usage, and identity misuse.</p>
-
-                <h2>Importance of SIM Registration</h2>
-                <ul>
-                    <li>Enhanced security</li>
-                    <li>Fraud prevention</li>
-                    <li>Accurate subscriber records</li>
-                    <li>Improved telecom compliance</li>
-                    <li>Better user protection</li>
-                </ul>
+                <p>This system helps reduce fraud, unauthorized SIM usage, and identity misuse. Proper SIM registration provides enhanced security, fraud prevention, and accurate subscriber records.</p>
 
                 <hr>
 
-                <h1>SIM Owner Details Explained</h1>
-                <p>SIM Owner Details refer to information associated with a registered mobile number. Many users search for SIM owner details to verify unknown numbers or confirm subscriber information.</p>
+                <h2>SIM Owner Details Explained</h2>
+                <p>SIM Owner Details refer to information associated with a registered mobile number. Many users search for SIM owner details to verify unknown numbers or confirm subscriber information. A registered SIM may be linked with subscriber identity, registration status, mobile network operator, and activation information.</p>
                 
-                <h2>What Information Is Typically Associated With a SIM?</h2>
-                <p>A registered SIM may be linked with:</p>
-                <ul>
-                    <li>Subscriber identity</li>
-                    <li>Registration status</li>
-                    <li>Mobile network operator</li>
-                    <li>Verification records</li>
-                    <li>Activation information</li>
-                </ul>
-                <p>The exact information available depends on legal regulations, privacy policies, and official verification procedures.</p>
-
-                <h2>Why Do People Search for SIM Owner Details?</h2>
-                <ul>
-                    <li>Verifying unknown callers</li>
-                    <li>Preventing fraud</li>
-                    <li>Checking personal SIM records</li>
-                    <li>Confirming ownership details</li>
-                    <li>Security verification</li>
-                </ul>
-
-                <h2>Common Misconceptions</h2>
+                <h3>Common Misconceptions</h3>
                 <p>Many websites claim to provide unrestricted access to telecom databases. However, official subscriber information is generally protected by privacy laws and telecom regulations. Users should always rely on legitimate verification methods and official telecom channels.</p>
 
                 <hr>
 
-                <h1>CNIC Verification Online</h1>
-                <p>CNIC Verification Online is one of the most searched telecom-related topics in Pakistan. A CNIC serves as the primary identity document used for SIM registration and telecom verification.</p>
-                
-                <h2>Why CNIC Verification Is Important</h2>
-                <ul>
-                    <li>Confirm identity records</li>
-                    <li>Verify SIM registration status</li>
-                    <li>Prevent unauthorized registrations</li>
-                    <li>Improve security</li>
-                    <li>Reduce identity theft risks</li>
-                </ul>
-
-                <h2>Relationship Between CNIC and SIM Registration</h2>
-                <p>Every registered SIM is linked to an identity verification process. This connection helps telecom operators maintain accurate subscriber records and comply with regulatory requirements.</p>
-
-                <h2>Benefits of CNIC Verification</h2>
-                <p>Online verification systems can help users:</p>
-                <ul>
-                    <li>Review registration status</li>
-                    <li>Verify identity information</li>
-                    <li>Monitor telecom records</li>
-                    <li>Improve account security</li>
-                    <li>Detect suspicious registrations</li>
-                </ul>
+                <h2>CNIC Verification Online</h2>
+                <p>CNIC Verification Online is one of the most searched telecom-related topics in Pakistan. A CNIC serves as the primary identity document used for SIM registration and telecom verification. It helps confirm identity records, prevent unauthorized registrations, and improve security.</p>
 
                 <hr>
 
-                <h1>Track Mobile Number Pakistan: Understanding the Reality</h1>
-                <p>Many users search for ways to <strong>Track Mobile Number Pakistan</strong>. However, there is often confusion regarding what tracking actually means.</p>
-                
-                <h2>Mobile Number Tracking vs Verification</h2>
-                <h3>Mobile Number Verification</h3>
-                <ul>
-                    <li>Checking registration information</li>
-                    <li>Verifying network details</li>
-                    <li>Confirming number status</li>
-                    <li>Reviewing subscriber-related records</li>
-                </ul>
-                <h3>Location Tracking</h3>
-                <ul>
-                    <li>Network-level access</li>
-                    <li>Authorized permissions</li>
-                    <li>Legal approval</li>
-                    <li>Specialized telecom systems</li>
-                </ul>
-                <p>Users should understand that public verification tools are not the same as real-time location tracking systems.</p>
-
-                <h2>Why People Want to Track Mobile Numbers</h2>
-                <ul>
-                    <li>Unknown callers</li>
-                    <li>Lost contact information</li>
-                    <li>Fraud prevention</li>
-                    <li>Business verification</li>
-                    <li>Security concerns</li>
-                </ul>
+                <h2>Track Mobile Number Pakistan: Understanding the Reality</h2>
+                <p>Many users search for ways to <strong>Track Mobile Number Pakistan</strong>. However, there is often confusion regarding what tracking actually means. Location tracking typically requires network-level access, authorized permissions, and legal approval. Public verification tools are not the same as real-time location tracking systems.</p>
 
                 <hr>
 
-                <h1>Understanding PakData SIM Database</h1>
-                <p>The term <strong>PakData SIM Database</strong> is commonly used online to describe collections of telecom-related information, SIM registration records, or subscriber databases.</p>
-                
-                <h2>What Does PakData SIM Database Mean?</h2>
-                <ul>
-                    <li>SIM information systems</li>
-                    <li>Subscriber verification records</li>
-                    <li>Mobile number lookup databases</li>
-                    <li>Registration information platforms</li>
-                    <li>Telecom data repositories</li>
-                </ul>
-
-                <h2>How Telecom Databases Work</h2>
-                <p>Telecom databases help operators manage:</p>
-                <ul>
-                    <li>Subscriber records</li>
-                    <li>SIM registrations</li>
-                    <li>Verification data</li>
-                    <li>Network information</li>
-                    <li>Identity authentication</li>
-                </ul>
-
-                <h2>Importance of Data Accuracy</h2>
-                <ul>
-                    <li>Reduce fraud</li>
-                    <li>Improve customer support</li>
-                    <li>Ensure regulatory compliance</li>
-                    <li>Maintain service quality</li>
-                    <li>Enhance security systems</li>
-                </ul>
+                <h2>Understanding PakData SIM Database</h2>
+                <p>The term <strong>PakData SIM Database</strong> is commonly used online to describe collections of telecom-related information, SIM registration records, or subscriber databases. Telecom databases help operators manage subscriber records, SIM registrations, and network information.</p>
 
                 <hr>
 
-                <h1>Mobile Network Operators in Pakistan</h1>
-                <p>Several major telecom operators provide mobile services across Pakistan.</p>
-                
-                <h2>Jazz</h2>
-                <p>Jazz is one of the largest mobile network providers, offering extensive coverage and digital services.</p>
-                <h2>Zong</h2>
-                <p>Zong provides nationwide connectivity and advanced telecom solutions for consumers and businesses.</p>
-                <h2>Telenor Pakistan</h2>
-                <p>Telenor Pakistan has served millions of subscribers through mobile and digital communication services.</p>
-                <h2>Ufone</h2>
-                <p>Ufone continues to offer affordable telecom services and nationwide coverage.</p>
-
-                <h3>Comparison Overview</h3>
-                <div class="overflow-x-auto">
+                <h2>Mobile Network Operators in Pakistan</h2>
+                <div class="overflow-x-auto my-8 shadow-lg rounded-xl">
                     <table class="min-w-full bg-white border border-gray-200">
                         <thead>
                             <tr class="bg-blue-600 text-white">
-                                <th class="py-2 px-4 border">Feature</th>
-                                <th class="py-2 px-4 border">Jazz</th>
-                                <th class="py-2 px-4 border">Zong</th>
-                                <th class="py-2 px-4 border">Telenor</th>
-                                <th class="py-2 px-4 border">Ufone</th>
+                                <th class="py-3 px-6 text-left border">Feature</th>
+                                <th class="py-3 px-6 text-center border">Jazz</th>
+                                <th class="py-3 px-6 text-center border">Zong</th>
+                                <th class="py-3 px-6 text-center border">Telenor</th>
+                                <th class="py-3 px-6 text-center border">Ufone</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-gray-700">
                             <tr>
-                                <td class="py-2 px-4 border">Mobile Services</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-3 px-6 border font-semibold">Mobile Services</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
                             </tr>
                             <tr class="bg-gray-50">
-                                <td class="py-2 px-4 border">Data Packages</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-3 px-6 border font-semibold">Data Packages</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
                             </tr>
                             <tr>
-                                <td class="py-2 px-4 border">SIM Registration</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                            </tr>
-                            <tr class="bg-gray-50">
-                                <td class="py-2 px-4 border">Verification Support</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
-                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-3 px-6 border font-semibold">SIM Registration</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
+                                <td class="py-3 px-6 text-center border">Yes</td>
                             </tr>
                         </tbody>
                     </table>
@@ -411,75 +285,8 @@
 
                 <hr>
 
-                <h1>SIM Verification Pakistan: Best Practices</h1>
-                <h2>Protect Your Identity</h2>
-                <ul>
-                    <li>Your CNIC information is secure</li>
-                    <li>SIM registrations are authorized</li>
-                    <li>Verification records are reviewed periodically</li>
-                    <li>Suspicious activity is reported</li>
-                </ul>
-
-                <h2>Prevent Unauthorized Registrations</h2>
-                <p>Users should regularly monitor telecom records to identify any unauthorized registrations associated with their identity.</p>
-
-                <h2>Benefits of SIM Verification</h2>
-                <ul>
-                    <li>Protect personal information</li>
-                    <li>Prevent identity misuse</li>
-                    <li>Improve security awareness</li>
-                    <li>Reduce telecom fraud</li>
-                </ul>
-
-                <hr>
-
-                <h1>Common Issues Users Face</h1>
-                <h2>Unknown Numbers</h2>
-                <p>Receiving calls from unknown numbers is a common concern.</p>
-                <h2>Registration Errors</h2>
-                <p>Incorrect registration information can create service issues and verification problems.</p>
-                <h2>Identity Theft Concerns</h2>
-                <p>Unauthorized use of personal information may result in unexpected SIM registrations.</p>
-                <h2>Subscriber Record Confusion</h2>
-                <p>Users often seek clarification regarding registration records and ownership information.</p>
-
-                <hr>
-
-                <h1>Privacy, Security and Legal Considerations</h1>
-                <h2>Protect Personal Data</h2>
-                <ul>
-                    <li>Avoid sharing sensitive information</li>
-                    <li>Use official verification methods</li>
-                    <li>Follow telecom regulations</li>
-                    <li>Verify information sources</li>
-                </ul>
-
-                <h2>Responsible Use of Verification Tools</h2>
-                <p>Verification systems should be used for legitimate purposes such as identity confirmation, security monitoring, and subscriber record management.</p>
-
-                <h2>Respect Data Privacy</h2>
-                <p>Subscriber information is protected by privacy regulations and should be handled responsibly.</p>
-
-                <hr>
-
-                <h1>Frequently Asked Questions</h1>
-                <h3>What is Live Tracker?</h3>
-                <p>Live Tracker generally refers to systems used for SIM verification, caller identification, subscriber information lookup, and telecom-related verification services.</p>
-                <h3>What are SIM Owner Details?</h3>
-                <p>SIM Owner Details refer to information associated with a registered mobile subscriber and SIM registration records.</p>
-                <h3>What is CNIC Verification Online?</h3>
-                <p>CNIC Verification Online is the process of confirming identity-related information through authorized verification systems.</p>
-                <h3>Can I Track a Mobile Number in Pakistan?</h3>
-                <p>Mobile number verification and caller identification may be possible through legitimate services, but real-time location tracking typically requires legal authorization and telecom-level access.</p>
-                <h3>What Is PakData SIM Database?</h3>
-                <p>PakData SIM Database is a term commonly used to describe telecom-related information systems and subscriber verification databases.</p>
-                <h3>Why Is SIM Verification Important?</h3>
-                <p>SIM verification improves security, prevents fraud, protects identities, and supports accurate subscriber records.</p>
-
-                <hr>
-
-                <h1>Conclusion</h1>
-                <p>Live Tracker has become an increasingly important topic for users interested in SIM owner details, CNIC verification online, mobile number verification, and telecom security. Understanding how SIM registration, subscriber verification, and telecom databases work can help users make informed decisions while protecting their privacy and identity. Focusing on legitimate, secure, and privacy-conscious methods is always the best approach.</p>
+                <h2>Conclusion</h2>
+                <p>Live Tracker has become an increasingly important topic for users interested in SIM owner details, CNIC verification online, mobile number verification, and telecom security. Focusing on legitimate, secure, and privacy-conscious methods is always the best approach. Awareness of SIM verification and identity protection will remain essential for every mobile user in Pakistan.</p>
             </article>
         </div>
     </section>
@@ -487,8 +294,8 @@
     <!-- About Section -->
     <section id="about" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h3 class="text-3xl font-bold mb-6">About Us</h3>
-            <p class="text-gray-700 leading-relaxed">Live Tracker Pak is a dedicated platform providing the latest information and guides on SIM registration, CNIC verification, and mobile tracking in Pakistan. Our goal is to educate users on legal ways to stay secure in the digital world.</p>
+            <h3 class="text-3xl font-bold mb-6 text-blue-800">About Us</h3>
+            <p class="text-gray-700 leading-relaxed text-lg">Live Tracker Pak is a dedicated platform providing the latest information and guides on SIM registration, CNIC verification, and mobile tracking in Pakistan. Our goal is to educate users on legal ways to stay secure in the digital world.</p>
         </div>
     </section>
 
@@ -496,13 +303,13 @@
     <section id="privacy" class="py-16 bg-white">
         <div class="container mx-auto px-4 max-w-4xl">
             <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Privacy Policy</h3>
-                    <p class="text-sm text-gray-600">We do not store any personal data entered into our tool. The tool is for educational purposes only. We respect user privacy and adhere to international data protection standards.</p>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Privacy Policy</h3>
+                    <p class="text-gray-600 leading-relaxed">We do not store any personal data entered into our tool. The tool is for educational purposes only. We respect user privacy and adhere to international data protection standards.</p>
                 </div>
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">Terms of Service</h3>
-                    <p class="text-sm text-gray-600">By using this site, you agree to use the information for legal purposes only. Any misuse of the information provided is the sole responsibility of the user.</p>
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-700">Terms of Service</h3>
+                    <p class="text-gray-600 leading-relaxed">By using this site, you agree to use the information for legal purposes only. Any misuse of the information provided is the sole responsibility of the user.</p>
                 </div>
             </div>
         </div>
@@ -511,16 +318,16 @@
     <!-- Contact Section -->
     <section id="contact" class="py-16 bg-gray-100">
         <div class="container mx-auto px-4 max-w-4xl text-center">
-            <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
-            <p class="text-gray-700 mb-4">Have questions? Reach out to us at:</p>
-            <p class="font-bold text-blue-600">support@livetrackingpk.github.io</p>
+            <h3 class="text-3xl font-bold mb-6 text-blue-800">Contact Us</h3>
+            <p class="text-gray-700 mb-4 text-lg">Have questions? Reach out to us at:</p>
+            <p class="font-bold text-blue-600 text-xl">support@livetrackingpk.github.io</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
         <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">&copy; 2026 Live Tracker Pakistan. All Rights Reserved.</p>
+            <p class="mb-4 opacity-80">&copy; 2026 Live Tracker Pakistan. All Rights Reserved.</p>
         </div>
     </footer>
 
