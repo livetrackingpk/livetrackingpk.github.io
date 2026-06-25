@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Tracker Pakistan - SIM Owner Details & CNIC Verification Online</title>
+    <meta name="description" content="Use Sim Live Tracker to find SIM owner details, CNIC verification online, and mobile number tracking in Pakistan. Get real-time data and legal guides.">
+    <meta name="keywords" content="Live Tracker, SIM Owner Details, CNIC Verification Online, Mobile Number Tracking, PakData SIM Database, Pakistan Telecom">
+    <link rel="canonical" href="https://livetrackingpk.github.io/" />
+    
+    <!-- Schema Markup for Fast Indexing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sim Live Tracker Pakistan",
+      "url": "https://livetrackingpk.github.io/",
+      "description": "A comprehensive tool and guide for SIM owner details and CNIC verification in Pakistan.",
+      "applicationCategory": "Utility",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Organization",
+        "name": "Live Tracker Pak"
+      }
+    }
+    </script>
+
+    <!-- Adsterra Popunder Script -->
+    <script src="https://crateworkshop.com/6e/81/5a/6e815a4ea426a35960c4db411131708b.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-section { background: #1e3a8a; color: white; padding: 100px 20px; }
+        .loader { border-top-color: #3498db; animation: spinner 1.5s linear infinite; }
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Live Tracker Pak</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#tool" class="hover:text-blue-600">Live Tracker Tool</a>
+                <a href="#guide" class="hover:text-blue-600">Guide</a>
+                <a href="#about" class="hover:text-blue-600">About</a>
+                <a href="#privacy" class="hover:text-blue-600">Privacy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4">Sim Live Tracker Pakistan</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Track SIM owner details, verify CNIC online, and explore mobile subscriber information instantly.</p>
+            <a href="#tool" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold transition hover:bg-gray-200">Start Tracking Now</a>
+        </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section id="tool" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-gray-100 rounded-2xl p-8 shadow-xl border border-gray-200">
+                <h3 class="text-3xl font-bold text-center mb-8 text-blue-700">Sim Live Tracker Tool</h3>
+                
+                <div id="quiz-container">
+                    <!-- Step 1 -->
+                    <div id="step-1" class="quiz-step">
+                        <p class="text-lg font-semibold mb-4">1. Ye SIM kis ki hy jis ki ap details nikalna chahtay ho?</p>
+                        <div class="space-y-3">
+                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Meri apni SIM hy</button>
+                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Kisi dost ya rishtedar ki hy</button>
+                            <button onclick="nextStep(1)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Anjan number hy</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div id="step-2" class="quiz-step hidden">
+                        <p class="text-lg font-semibold mb-4">2. Ap kis jaga sy ho Pakistan me?</p>
+                        <input type="text" id="location" placeholder="City Name" class="w-full p-3 rounded-lg border border-gray-300 mb-4">
+                        <button onclick="nextStep(2)" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold">Next</button>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div id="step-3" class="quiz-step hidden">
+                        <p class="text-lg font-semibold mb-4">3. Ap ka SIM network kia hy?</p>
+                        <select id="network" class="w-full p-3 rounded-lg border border-gray-300 mb-4">
+                            <option>Jazz</option>
+                            <option>Zong</option>
+                            <option>Telenor</option>
+                            <option>Ufone</option>
+                        </select>
+                        <button onclick="nextStep(3)" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold">Next</button>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div id="step-4" class="quiz-step hidden">
+                        <p class="text-lg font-semibold mb-4">4. Ap konsi device sy track kr rhy hain?</p>
+                        <div class="space-y-3">
+                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Android Mobile</button>
+                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">iPhone / iOS</button>
+                            <button onclick="nextStep(4)" class="w-full bg-white border border-blue-500 py-3 rounded-lg hover:bg-blue-50">Computer / Laptop</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div id="step-5" class="quiz-step hidden">
+                        <p class="text-lg font-semibold mb-4">5. Kia ap is tool ko sirf legal maqsad ke liye use krain gy?</p>
+                        <div class="flex space-x-4">
+                            <button onclick="nextStep(5)" class="flex-1 bg-green-600 text-white py-3 rounded-lg font-bold">Ji Han</button>
+                            <button onclick="alert('Sorry, legal use is mandatory.')" class="flex-1 bg-red-600 text-white py-3 rounded-lg font-bold">Nahi</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 (Agreement) -->
+                    <div id="step-6" class="quiz-step hidden">
+                        <p class="text-lg font-semibold mb-4 text-red-600 text-center">Important Agreement</p>
+                        <p class="text-sm mb-6 text-gray-700">Me iqrar krta ho ke me ye details apni zimadari sy nikal rha ho aur iska koi bi galt use nhi kro ga. Agr koi masla hoa tu me khud zimadar ho ga.</p>
+                        <button onclick="nextStep(6)" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold text-xl">I Agree & Continue</button>
+                    </div>
+
+                    <!-- Final Step (Input) -->
+                    <div id="step-7" class="quiz-step hidden">
+                        <p class="text-lg font-semibold mb-4">Enter Mobile Number or CNIC</p>
+                        <input type="text" id="target_id" placeholder="e.g. 03001234567 or 35201..." class="w-full p-4 rounded-lg border-2 border-blue-500 mb-4 text-xl text-center">
+                        <button onclick="startProcess()" class="w-full bg-green-600 text-white py-4 rounded-lg font-bold text-xl">Get Details</button>
+                    </div>
+
+                    <!-- Processing -->
+                    <div id="processing" class="quiz-step hidden text-center">
+                        <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24 mb-4 mx-auto"></div>
+                        <p class="text-xl font-bold text-blue-600">Processing Data...</p>
+                        <p class="text-gray-500">Searching in PakData SIM Database...</p>
+                    </div>
+
+                    <!-- Result -->
+                    <div id="result" class="quiz-step hidden">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6">
+                            <p class="font-bold text-yellow-700 text-lg">Result Found!</p>
+                            <p class="text-yellow-600 mt-2">Maazrat, abi iska data free me majood nhi hy.</p>
+                        </div>
+                        <h4 class="font-bold text-xl mb-4">Real Legal Treeqa (Recommended)</h4>
+                        <p class="text-gray-700 mb-4">Agar ap kisi SIM ki details nikalna chahtay hain tu nechy diye gaye legal treeqy follow krain:</p>
+                        <ul class="list-disc ml-6 space-y-2 text-gray-700">
+                            <li><strong>7000 SMS:</strong> Apna CNIC number 7000 pe bhejin (Telenor).</li>
+                            <li><strong>668 SMS:</strong> Apna CNIC number 668 pe bhejin SIM counts jan'ny ke liye.</li>
+                            <li><strong>Official App:</strong> Jazz World, Zong App, ya Telenor App use krain.</li>
+                            <li><strong>Police Help:</strong> Agr koi tang kr rha hy tu FIA Cyber Crime ya local police sy rabta krain.</li>
+                        </ul>
+                        <button onclick="location.reload()" class="mt-8 w-full bg-blue-600 text-white py-3 rounded-lg font-bold">Search Another Number</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section id="guide" class="py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <article class="prose prose-blue lg:prose-xl mx-auto">
+                <h1 class="text-3xl font-bold mb-6">Live Tracker Pakistan: Complete Guide to SIM Owner Details, CNIC Verification Online & Mobile Number Tracking</h1>
+                
+                <h2 class="text-2xl font-bold mt-8 mb-4">Introduction</h2>
+                <p class="mb-4">The term <strong>Live Tracker</strong> has become one of the most searched topics in Pakistan among users looking for SIM owner details, CNIC verification online, mobile number information, and telecom-related verification systems. Many people search for a live tracker to verify unknown numbers, check registered SIMs, identify callers, or understand how mobile subscriber verification works.</p>
+                <p class="mb-4">With the increasing importance of digital security, identity verification, and telecom regulations, understanding SIM registration and mobile number verification has become essential. This guide explains everything you need to know about Live Tracker systems, SIM owner details, CNIC verification, mobile number tracking, and the concept commonly referred to as the PakData SIM Database.</p>
+                
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">What Is Live Tracker?</h2>
+                <p class="mb-4">A <strong>Live Tracker</strong> generally refers to a system or platform that helps users verify mobile-related information, identify unknown callers, check SIM registration records, or access telecom verification services.</p>
+                <p class="mb-4">People searching for Live Tracker often want to:</p>
+                <ul class="list-disc ml-6 mb-4">
+                    <li>Verify SIM ownership information</li>
+                    <li>Check mobile subscriber records</li>
+                    <li>Identify unknown callers</li>
+                    <li>Review registered SIMs linked to a CNIC</li>
+                    <li>Learn about telecom verification systems</li>
+                    <li>Understand mobile number lookup services</li>
+                </ul>
+                <p class="mb-4">The popularity of Live Tracker searches reflects the growing need for digital security and identity verification in Pakistan.</p>
+
+                <h3 class="text-xl font-bold mt-6 mb-3">Why Is Live Tracker Popular?</h3>
+                <p class="mb-4">Several factors contribute to the increasing interest in Live Tracker services: Rising telecom fraud cases, unwanted calls and spam messages, identity verification requirements, SIM registration concerns, and security and privacy awareness.</p>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">How SIM Registration Works in Pakistan</h2>
+                <p class="mb-4">SIM registration in Pakistan follows a structured process regulated by the Pakistan Telecommunication Authority (PTA). When a user purchases a new SIM card, identity verification is required before activation. The registration process is designed to ensure that each mobile number is linked to a verified identity.</p>
+                
+                <h3 class="text-xl font-bold mt-6 mb-3">Biometric Verification Process</h3>
+                <ol class="list-decimal ml-6 mb-4">
+                    <li>CNIC verification</li>
+                    <li>Biometric fingerprint authentication</li>
+                    <li>Subscriber registration</li>
+                    <li>SIM activation</li>
+                    <li>Database synchronization</li>
+                </ol>
+                <p class="mb-4">This system helps reduce fraud, unauthorized SIM usage, and identity misuse. Proper SIM registration provides enhanced security, fraud prevention, and accurate subscriber records.</p>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">SIM Owner Details Explained</h2>
+                <p class="mb-4">SIM Owner Details refer to information associated with a registered mobile number. Many users search for SIM owner details to verify unknown numbers or confirm subscriber information. A registered SIM may be linked with subscriber identity, registration status, mobile network operator, and activation information.</p>
+                <h3 class="text-xl font-bold mt-6 mb-3">Common Misconceptions</h3>
+                <p class="mb-4">Many websites claim to provide unrestricted access to telecom databases. However, official subscriber information is generally protected by privacy laws and telecom regulations. Users should always rely on legitimate verification methods and official telecom channels.</p>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">CNIC Verification Online</h2>
+                <p class="mb-4">CNIC Verification Online is one of the most searched telecom-related topics in Pakistan. A CNIC serves as the primary identity document used for SIM registration and telecom verification. It helps confirm identity records, prevent unauthorized registrations, and improve security.</p>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Track Mobile Number Pakistan: Understanding the Reality</h2>
+                <p class="mb-4">Many users search for ways to <strong>Track Mobile Number Pakistan</strong>. However, there is often confusion regarding what tracking actually means. Location tracking typically requires network-level access, authorized permissions, and legal approval. Public verification tools are not the same as real-time location tracking systems.</p>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Understanding PakData SIM Database</h2>
+                <p class="mb-4">The term <strong>PakData SIM Database</strong> is commonly used online to describe collections of telecom-related information, SIM registration records, or subscriber databases. Telecom databases help operators manage subscriber records, SIM registrations, and network information.</p>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Mobile Network Operators in Pakistan</h2>
+                <div class="overflow-x-auto my-8">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead>
+                            <tr class="bg-blue-600 text-white">
+                                <th class="py-2 px-4 border">Feature</th>
+                                <th class="py-2 px-4 border">Jazz</th>
+                                <th class="py-2 px-4 border">Zong</th>
+                                <th class="py-2 px-4 border">Telenor</th>
+                                <th class="py-2 px-4 border">Ufone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border">Mobile Services</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-4 border">SIM Registration</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                                <td class="py-2 px-4 border">Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="my-8">
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Conclusion</h2>
+                <p class="mb-4">Live Tracker has become an increasingly important topic for users interested in SIM owner details, CNIC verification online, mobile number verification, and telecom security. Focusing on legitimate, secure, and privacy-conscious methods is always the best approach.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h3 class="text-3xl font-bold mb-6">About Us</h3>
+            <p class="text-gray-700 leading-relaxed">Live Tracker Pak is a dedicated platform providing the latest information and guides on SIM registration, CNIC verification, and mobile tracking in Pakistan. Our goal is to educate users on legal ways to stay secure in the digital world.</p>
+        </div>
+    </section>
+
+    <!-- Privacy & Terms Section -->
+    <section id="privacy" class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Privacy Policy</h3>
+                    <p class="text-sm text-gray-600">We do not store any personal data entered into our tool. The tool is for educational purposes only. We respect user privacy and adhere to international data protection standards.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Terms of Service</h3>
+                    <p class="text-sm text-gray-600">By using this site, you agree to use the information for legal purposes only. Any misuse of the information provided is the sole responsibility of the user.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 max-w-4xl text-center">
+            <h3 class="text-3xl font-bold mb-6">Contact Us</h3>
+            <p class="text-gray-700 mb-4">Have questions? Reach out to us at:</p>
+            <p class="font-bold text-blue-600">support@livetrackingpk.github.io</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">&copy; 2026 Live Tracker Pakistan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for Tool -->
+    <script>
+        function nextStep(current) {
+            document.getElementById('step-' + current).classList.add('hidden');
+            document.getElementById('step-' + (current + 1)).classList.remove('hidden');
+        }
+
+        function startProcess() {
+            const input = document.getElementById('target_id').value;
+            if(!input) { alert('Please enter a number or CNIC'); return; }
+            
+            document.getElementById('step-7').classList.add('hidden');
+            document.getElementById('processing').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('processing').classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+            }, 10000); // 10 seconds as requested
+        }
+    </script>
+</body>
+</html>
