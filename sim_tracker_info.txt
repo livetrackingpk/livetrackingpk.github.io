@@ -1,0 +1,20 @@
+# Live SIM Tracker Website Content
+
+## Key Features
+- **SIM Owner Details:** Find information about the person who owns a specific SIM card.
+- **Location Tracking:** Real-time tracking of the SIM card's location using GPS/Cell Tower data.
+- **CNIC Information:** Check how many SIMs are registered against a specific CNIC (Identity Card).
+- **Network Details:** Identify the mobile network operator (MNO) and signal strength.
+- **Number Search:** Quick search bar for mobile numbers.
+
+## Website Sections
+1. **Hero Section:** Clear title "Live SIM Tracker Online", search bar mockup, and a "Track Now" button.
+2. **Features Grid:** Icons and descriptions for Location, Owner Details, and Network Info.
+3. **How It Works:** Step-by-step guide (Enter Number -> Search -> View Results).
+4. **Safety & Privacy:** Information about ethical use and data security.
+5. **FAQ:** Common questions about SIM tracking.
+
+## Design Aesthetic
+- **Color Palette:** Dark blue, white, and accent colors like orange or green for "Live" status.
+- **Vibe:** Professional, secure, and high-tech.
+- **Elements:** Map backgrounds, radar animations, and clean UI components.
