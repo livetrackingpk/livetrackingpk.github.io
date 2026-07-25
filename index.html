@@ -4,615 +4,572 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live SIM Tracker - Real-Time Location Tracking & SIM Details</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
-            color: #e0e0e0;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: rgba(10, 20, 40, 0.95);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 2px solid #00d4ff;
-            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #00d4ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        nav a {
-            color: #e0e0e0;
-            text-decoration: none;
-            margin-left: 30px;
-            transition: color 0.3s ease;
-            font-size: 0.95em;
-        }
-
-        nav a:hover {
-            color: #00d4ff;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(26, 35, 50, 0.8) 100%);
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            animation: fadeInDown 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            color: white;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .hero h1 .highlight {
-            color: #00d4ff;
-        }
-
-        .hero p {
-            font-size: 1.2em;
-            color: #b0b0b0;
-            margin-bottom: 30px;
-        }
-
-        .search-box {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto 20px;
-            gap: 10px;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .search-box input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #00d4ff;
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-        }
-
-        .search-box input::placeholder {
-            color: #808080;
-        }
-
-        .btn-primary {
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-        }
-
-        /* Features Section */
-        .features {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: white;
-        }
-
-        .section-title .highlight {
-            color: #00d4ff;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(26, 35, 50, 0.6) 100%);
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            padding: 30px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            animation: fadeInUp 1s ease;
-        }
-
-        .feature-card:hover {
-            border-color: #00d4ff;
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            color: #00d4ff;
-        }
-
-        .feature-card p {
-            color: #b0b0b0;
-            font-size: 0.95em;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(26, 35, 50, 0.8) 100%);
-            padding: 60px 20px;
-            margin: 60px 0;
-        }
-
-        .how-it-works-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .step {
-            text-align: center;
-            padding: 30px;
-            background: rgba(10, 20, 40, 0.6);
-            border-radius: 12px;
-            border-left: 4px solid #00d4ff;
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            color: white;
-            border-radius: 50%;
-            line-height: 50px;
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .step h4 {
-            color: #00d4ff;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .step p {
-            color: #b0b0b0;
-            font-size: 0.95em;
-        }
-
-        /* Features Showcase */
-        .features-showcase {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .showcase-image {
-            width: 100%;
-            max-width: 600px;
-            margin: 40px auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
-            border: 2px solid rgba(0, 212, 255, 0.3);
-        }
-
-        /* FAQ Section */
-        .faq {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .faq-item {
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(26, 35, 50, 0.6) 100%);
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            margin-bottom: 20px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #00d4ff;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(0, 212, 255, 0.1);
-        }
-
-        .faq-answer {
-            padding: 0 20px 20px;
-            color: #b0b0b0;
-            display: none;
-        }
-
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        .faq-toggle {
-            font-size: 1.5em;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(10, 20, 40, 0.95);
-            color: #b0b0b0;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 2px solid #00d4ff;
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: #00d4ff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .search-box {
-                flex-direction: column;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <meta name="description" content="Check SIM Owner Details, CNIC Verification Online, and mobile number information with Pakistan's complete Live Tracker guide.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Adsterra Popunder -->
+    <script src="https://crateworkshop.com/27/2e/64/272e64c280dc4381be4ab0cd496581f2.js"></script>
 </head>
 <body>
-    <!-- Header -->
+
     <header>
         <div class="header-content">
-            <div class="logo">📍 Live SIM Tracker</div>
+            <a href="#" class="logo">📍 Live SIM Tracker</a>
             <nav>
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#faq">FAQ</a>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#disclaimer">Disclaimer</a>
+                <a href="#cookie">Cookie</a>
+                <a href="#dmca">DMCA</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Track Live. Stay Informed. <span class="highlight">Stay Connected.</span></h1>
-            <p>Real-time SIM tracking with GPS accuracy and instant notifications</p>
-            
-            <div class="search-box">
-                <input type="text" placeholder="Enter mobile number (e.g., +92-300-1234567)">
-                <button class="btn-primary">Track Now</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <h2 class="section-title">Powerful <span class="highlight">Features</span></h2>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📍</div>
-                <h3>Live Location Tracking</h3>
-                <p>Track the real-time location of any SIM card with GPS accuracy up to 5.2 meters. Get instant updates every few seconds.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">👤</div>
-                <h3>Owner Details</h3>
-                <p>Retrieve verified owner information associated with any SIM card. Check CNIC details and registration status instantly.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">📡</div>
-                <h3>Network Information</h3>
-                <p>View network provider, signal strength, and SIM registration details. Monitor network activity in real-time.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3>Security & Privacy</h3>
-                <p>Your data is encrypted and protected with military-grade security. All tracking is logged and audited for compliance.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">🔔</div>
-                <h3>Instant Alerts</h3>
-                <p>Get notified immediately about location changes, network switches, and important SIM activities via SMS and email.</p>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Accurate & Reliable</h3>
-                <p>Advanced technology ensures 99.9% uptime and accurate tracking. Trusted by thousands of users worldwide.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Showcase Image -->
-    <section class="features-showcase">
-        <img src="sim_tracker_features.png" alt="Live SIM Tracker Features" class="showcase-image">
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="how-it-works-content">
-            <h2 class="section-title">How It <span class="highlight">Works</span></h2>
-            
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Enter Number</h4>
-                    <p>Input the mobile number you want to track in the search box. Supports all major networks.</p>
+    <main id="home">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Track Live. Stay Informed. <span class="highlight">Stay Connected.</span></h1>
+                
+                <!-- TOOL MOVED TO TOP AFTER H1 -->
+                <div class="ad-container">
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : 'a09e608e0a9214e29018ceb4a2e05fb4',
+                            'format' : 'iframe',
+                            'height' : 50,
+                            'width' : 320,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="https://crateworkshop.com/a09e608e0a9214e29018ceb4a2e05fb4/invoke.js"></script>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Verify & Search</h4>
-                    <p>Our system verifies the number and searches our database for real-time tracking data.</p>
+                <section id="tool" class="tool-section" style="margin-top: 20px; text-align: left;">
+                    <div class="tool-header">
+                        <h2>Interactive <span class="highlight">Live SIM Tracker</span></h2>
+                        <p>Complete the steps below to find official tracking methods.</p>
+                    </div>
+
+                    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+                    <div id="toolContent">
+                        <div class="question-group active" data-q="1">
+                            <div class="q-num">Step 1 of 10</div>
+                            <div class="q-text">Which country are you in?</div>
+                            <select id="q_country"><option value="">Select Country</option><option value="pakistan">Pakistan</option><option value="other">Other</option></select>
+                        </div>
+                        <div class="question-group" data-q="2">
+                            <div class="q-num">Step 2 of 10</div>
+                            <div class="q-text">Which city are you located in?</div>
+                            <input type="text" id="q_city" placeholder="e.g. Karachi, Lahore, Islamabad">
+                        </div>
+                        <div class="question-group" data-q="3">
+                            <div class="q-num">Step 3 of 10</div>
+                            <div class="q-text">Whose SIM information do you want to track?</div>
+                            <div class="radio-group">
+                                <div class="option-card" onclick="selectRadio('q_own')"><input type="radio" name="q_who" id="q_own" value="own"> <label>My own SIM</label></div>
+                                <div class="option-card" onclick="selectRadio('q_other')"><input type="radio" name="q_who" id="q_other" value="other"> <label>Someone else's SIM</label></div>
+                            </div>
+                        </div>
+                        <div class="question-group" data-q="4">
+                            <div class="q-num">Step 4 of 10</div>
+                            <div class="q-text">Why do you need this information?</div>
+                            <select id="q_reason"><option value="lost">Lost/Stolen Device</option><option value="verify">Security Verification</option><option value="other">Other Legitimate Reason</option></select>
+                        </div>
+                        <div class="question-group" data-q="5">
+                            <div class="q-num">Step 5 of 10</div>
+                            <div class="q-text">What device are you using?</div>
+                            <select id="q_device"><option value="mobile">Smartphone</option><option value="pc">Computer/Laptop</option></select>
+                        </div>
+                        <div class="question-group" data-q="6">
+                            <div class="q-num">Step 6 of 10</div>
+                            <div class="q-text">Do you have proper authorization?</div>
+                            <div class="radio-group">
+                                <div class="option-card" onclick="selectRadio('q_auth_y')"><input type="radio" name="q_auth" id="q_auth_y" value="yes"> <label>Yes, I have authorization</label></div>
+                                <div class="option-card" onclick="selectRadio('q_auth_n')"><input type="radio" name="q_auth" id="q_auth_n" value="no"> <label>No, I don't have authorization</label></div>
+                            </div>
+                        </div>
+                        <div class="question-group" data-q="7">
+                            <div class="q-num">Step 7 of 10</div>
+                            <div class="q-text">Enter the mobile number</div>
+                            <input type="tel" id="q_num" placeholder="+92-3xx-xxxxxxx">
+                        </div>
+                        <div class="question-group" data-q="8">
+                            <div class="q-num">Step 8 of 10</div>
+                            <div class="q-text">Do you have the CNIC/ID number? (Optional)</div>
+                            <input type="text" id="q_cnic" placeholder="xxxxx-xxxxxxx-x">
+                        </div>
+                        <div class="question-group" data-q="9">
+                            <div class="q-num">Step 9 of 10</div>
+                            <div class="q-text">Which network provider is the SIM on?</div>
+                            <select id="q_net"><option value="jazz">Jazz</option><option value="telenor">Telenor</option><option value="zong">Zong</option><option value="ufone">Ufone</option></select>
+                        </div>
+                        <div class="question-group" data-q="10">
+                            <div class="q-num">Step 10 of 10</div>
+                            <div class="q-text">What's your email address?</div>
+                            <input type="email" id="q_email" placeholder="email@example.com">
+                        </div>
+                        <div class="question-group" id="legalStep">
+                            <h3>Legal Agreement</h3>
+                            <p style="font-size: 0.9em;">By proceeding, you agree that you will use this information only for legal purposes. Unauthorized tracking is prohibited.</p>
+                            <div class="option-card"><input type="checkbox" id="q_agree"> <label for="q_agree">I agree to the terms and conditions</label></div>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary" id="btnPrev" style="display:none">Back</button>
+                            <button class="btn btn-primary" id="btnNext">Next Step</button>
+                        </div>
+                    </div>
+                    <div class="loading" id="toolLoading">
+                        <div class="spinner"></div>
+                        <h3>Processing Request...</h3>
+                        <p>Searching official databases. Please wait <span id="timer">10</span> seconds.</p>
+                    </div>
+                    <div class="results" id="toolResults">
+                        <h3>Official Tracking Methods</h3>
+                        <div id="resultsContent"></div>
+                        <button class="btn btn-primary" onclick="location.reload()">Start New Search</button>
+                    </div>
+                </section>
+
+                <p>A Live SIM Tracker helps people understand SIM-related information and mobile network details. Many users believe it can show a phone's exact live location. That idea creates confusion. In reality, a SIM card does not work like a GPS tracker.</p>
+                <img src="sim_tracker_hero.png" alt="Live SIM Tracker Hero" class="hero-img">
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Introduction Section -->
+            <section>
+                <p>A Live SIM Tracker Online usually focuses on SIM information, network details, or registration records. It does not provide real-time location access to the public. Mobile network operators protect subscriber data through strict privacy and security rules.</p>
+                <p>This guide explains what a SIM Tracker can and cannot do. You will learn how SIM cards work, how mobile networks identify devices, and what information you can legally access. We will also explain the difference between SIM tracking, GPS tracking, and mobile number verification.</p>
+                <p>Whether you want to check SIM details, understand a Mobile Number Tracker, or use a SIM Information Checker, this guide provides accurate and trustworthy information. Every section follows current industry practices and avoids common myths.</p>
+                <p>By the end, you will know how SIM tracking works, its real limitations, and the safest ways to verify SIM-related information. The information in this guide is based on official mobile technology standards and trusted industry sources, including the GSMA, the 3rd Generation Partnership Project (3GPP), and guidance from mobile device manufacturers.</p>
+            </section>
+
+            <!-- Detailed Content Sections -->
+            <section id="guide">
+                <h2>What Is a <span class="highlight">Live SIM Tracker?</span></h2>
+                <h3>Definition of a Live SIM Tracker</h3>
+                <p>A Live SIM Tracker is a tool or service that provides information linked to a SIM card. It may display details such as the mobile network, SIM status, or registration information. Many people also search for a SIM Tracker or Mobile Number Tracker because they want to locate a phone or verify a mobile number.</p>
+                <p>However, the term often creates confusion. Many websites claim they can show a phone's exact live location through its SIM card. That is not how mobile technology works. A SIM card identifies a subscriber on a mobile network, but it does not broadcast a public live location.</p>
+                <p>People usually search for a Live SIM Tracker to check SIM details, verify a number, or understand how SIM tracking works. Knowing what is technically possible helps you avoid misleading claims and choose reliable information.</p>
+
+                <h3>How SIM Cards Work in Mobile Networks</h3>
+                <p>A Subscriber Identity Module (SIM) stores information that identifies your mobile subscription. When you insert the SIM into a phone, it connects to your mobile carrier. The network checks the SIM before allowing calls, messages, or mobile data.</p>
+                <p>This process is called authentication. It confirms that the SIM belongs to a valid subscriber. If the check succeeds, the phone connects to the carrier's GSM, LTE, or 5G network.</p>
+                <p>The SIM does not store your live location. Instead, the mobile network knows which nearby cell tower your phone uses to stay connected. Mobile carriers manage this information securely to operate their networks and protect customer privacy. Industry standards from GSMA and 3GPP define how SIM authentication and network access work.</p>
+
+                <h3>Can a SIM Card Be Tracked Live?</h3>
+                <p>The short answer is no, at least not by the general public. A SIM card cannot provide its own GPS location. Live GPS tracking depends on the phone, location services, and user permission.</p>
+                <p>Mobile carriers can estimate a device's location for network operations or when required by law. They do not provide public access to live subscriber locations. This is why most websites promising Live SIM Tracking or exact SIM Location results should be treated with caution. Reliable Mobile Tracking combines authorised location services, device features, and privacy protections rather than relying on the SIM card alone.</p>
+            </section>
+
+            <section id="how-it-works">
+                <h2>How Live SIM Tracking <span class="highlight">Actually Works</span></h2>
+                <h3>Role of the SIM Card</h3>
+                <p>A SIM card connects your phone to a mobile network. It stores a unique subscriber identity that helps your carrier recognise your account. When you turn on your phone, the SIM requests access to the network. The carrier verifies the request before allowing calls, texts, and mobile data.</p>
+                <p>The SIM does not contain GPS hardware or track your location. Its main job is to identify your subscription and keep your connection secure. This process allows your phone to communicate with nearby network towers while protecting your account.</p>
+
+                <h3>Role of IMEI and IMSI</h3>
+                <p>A phone uses both the IMEI and IMSI for device identification, but they serve different purposes. The International Mobile Equipment Identity (IMEI) identifies the physical device. The International Mobile Subscriber Identity (IMSI) identifies the mobile subscriber stored on the SIM card.</p>
+                <p>Another important identifier is the Integrated Circuit Card Identifier (ICCID). It identifies the SIM card itself. Together, the IMEI, IMSI, and ICCID help mobile carriers manage devices, authenticate subscribers, and maintain secure network connections. These identifiers support network operations. They do not allow the public to track a phone's live location.</p>
+
+                <h3>GPS vs SIM Tracking</h3>
+                <p>Many people confuse GPS Tracking with SIM tracking. They work in different ways. GPS uses satellites to calculate a device's location. It can provide accurate positioning when Location Services are enabled and the user grants permission. Apps such as Google Maps use GPS to deliver navigation and live location features.</p>
+                <p>A SIM card does not calculate location. It only helps the phone connect to the mobile network. The network can estimate a device's position by identifying the cell tower serving the phone. This estimate is usually less accurate than GPS and depends on tower coverage and network conditions. Modern smartphones often combine GPS, Wi-Fi, Bluetooth, and mobile network data to improve device tracking.</p>
+
+                <h3>Mobile Network Location Methods</h3>
+                <p>Mobile carriers use several methods to estimate a phone's location. One common method is Cell ID. It identifies the cell tower currently serving the device. This provides a general location rather than an exact address. Another method is triangulation. The network compares signals from multiple nearby towers to estimate where the device is located. Accuracy improves when more towers are available.</p>
+                <p>These carrier systems help support emergency services, network management, and authorised investigations. Mobile carriers protect this information under privacy laws and do not make live subscriber locations publicly available. Industry standards from GSMA and 3GPP define how these technologies operate and safeguard subscriber information.</p>
+            </section>
+
+            <section>
+                <h2>What Information Can a <span class="highlight">Live SIM Tracker Show?</span></h2>
+                <h3>SIM Registration Information</h3>
+                <p>A Live SIM Tracker may display basic SIM registration details when supported by authorised services or official databases. The available information depends on local laws and privacy rules. In many cases, you can verify whether a SIM is active or linked to a specific network operator.</p>
+                <p>Some services may also confirm the SIM's registration status or mobile carrier. However, they do not reveal private subscriber information without proper authorisation. Mobile carriers protect customer records through strict security measures. Always use trusted sources when checking SIM details. Official telecom authorities and mobile operators provide the most reliable information.</p>
+
+                <h3>Mobile Network Information</h3>
+                <p>A Live SIM Tracker may identify the network operator connected to a mobile number. It can also show the country, network type, or carrier information. This helps users confirm whether a number belongs to a supported mobile network.</p>
+                <p>Some tools display the network technology, such as GSM, LTE, or 5G. Others may show whether the number has changed to another carrier through number portability. The exact details vary by service and available data.</p>
+
+                <h3>Device Information</h3>
+                <p>A Live SIM Tracker does not reveal every detail about a phone. However, some authorised services can identify limited device information. This may include the device model, manufacturer, or status when linked with official carrier records. Network systems also use identifiers such as the IMEI to recognise a device and the ICCID to identify the SIM card. Public tools cannot access private device records without permission.</p>
+
+                <h3>Location Information Limitations</h3>
+                <p>Many users expect a Live SIM Tracker to display a phone's exact location. In reality, this is not how SIM technology works. A SIM card does not contain GPS hardware or send live location updates. Mobile carriers can estimate a device's position using nearby cell towers. This information supports emergency services, network management, and other authorised purposes. It is not available to the public through ordinary SIM tracking websites.</p>
+                <p>Accurate mobile number details do not include a person's live location. Real-time location usually comes from Location Services on the device. These services rely on GPS, Wi-Fi, Bluetooth, and nearby cell towers. They also require user permission before sharing location data. Understanding these limits helps you avoid misleading claims and choose trustworthy services for checking SIM details and network information.</p>
+            </section>
+
+            <section>
+                <h2>Live SIM Tracker vs <span class="highlight">GPS Tracker</span></h2>
+                <p>People often use the terms Live SIM Tracker and GPS Tracker interchangeably. However, they work in different ways. Understanding the difference helps you choose the right solution for your needs.</p>
+                
+                <h3>Key Differences</h3>
+                <p>A SIM Tracker focuses on information linked to a SIM card and the mobile network. It helps identify details such as the network operator, SIM status, or registration information. It does not determine a phone's exact location.</p>
+                <p>A GPS Tracker uses satellites to calculate a device's position. It provides accurate location data when Location Services are enabled. Most smartphones use GPS together with Wi-Fi and nearby cell towers to improve accuracy. Another key difference is data access. Mobile carriers manage SIM-related information and protect it with strict privacy rules. GPS location remains under the device owner's control.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>SIM Tracker</th>
+                                <th>GPS Tracker</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Primary purpose</td>
+                                <td>Verify SIM and network information</td>
+                                <td>Find a device's location</td>
+                            </tr>
+                            <tr>
+                                <td>Main technology</td>
+                                <td>Mobile network</td>
+                                <td>GPS satellites</td>
+                            </tr>
+                            <tr>
+                                <td>Location accuracy</td>
+                                <td>General network area</td>
+                                <td>High accuracy outdoors</td>
+                            </tr>
+                            <tr>
+                                <td>Uses GPS</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Uses cell towers</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Requires location permission</td>
+                                <td>No</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Best for</td>
+                                <td>SIM details and verification</td>
+                                <td>Real-time device tracking</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>View Results</h4>
-                    <p>Get instant results with location, owner details, network info, and tracking history.</p>
+                <h3>Advantages of SIM Tracking</h3>
+                <p>A SIM Tracker is useful for checking SIM details and confirming mobile network information. It can help verify a mobile number, identify the carrier, and check whether a SIM is active. Businesses use SIM information to manage connected devices across different networks. Users also benefit when confirming carrier details before switching networks or troubleshooting connection issues.</p>
+                
+                <h3>Advantages of GPS Tracking</h3>
+                <p>A GPS Tracker is the best choice for accurate device tracking. It calculates a phone's position using satellite signals instead of relying only on the mobile network. Navigation apps like Google Maps use GPS to provide turn-by-turn directions. Family safety apps use it to share live locations with approved contacts. GPS tracking also powers services such as Find My Device on Android and Find My on iPhone.</p>
+            </section>
+
+            <section>
+                <h2>Common Uses of <span class="highlight">Live SIM Trackers</span></h2>
+                <p>A Live SIM Tracker supports several practical tasks beyond checking SIM details. While it cannot reveal a person's exact live location, it helps users verify network information, manage connected devices, and improve mobile security.</p>
+                
+                <h3>Finding a Lost Phone</h3>
+                <p>A Live SIM Tracker can help confirm the network operator linked to your SIM card. This information may support the recovery process after losing a phone. However, it cannot show the phone's exact location. For accurate tracking, use your device's built-in tools like Google Find My Device or Apple Find My.</p>
+
+                <h3>Managing Business Devices</h3>
+                <p>Many businesses manage phones, tablets, and connected devices with SIM cards. A Live SIM Tracker helps verify SIM status, carrier information, and network connections across multiple devices. This information helps IT teams monitor active SIM cards and resolve network issues faster.</p>
+
+                <h3>Family Safety</h3>
+                <p>Families often want to know that loved ones are safe. A Live SIM Tracker can verify network information, but it cannot replace dedicated location-sharing apps. For trusted family location sharing, use built-in services with the owner's permission.</p>
+
+                <h3>Fraud Detection</h3>
+                <p>SIM information helps identify suspicious mobile activity. Users can verify whether a mobile number belongs to the expected network operator or check if a SIM remains active. Businesses also use SIM verification to reduce account fraud and detect unusual changes.</p>
+
+                <h3>SIM Verification</h3>
+                <p>SIM verification confirms that a SIM card is correctly registered and connected to the intended mobile network. This process helps users check SIM details, confirm carrier information, and identify registration issues. Always use official telecom providers or authorised services when checking SIM information.</p>
+            </section>
+
+            <section>
+                <h2>What You Need Before Using a <span class="highlight">Live SIM Tracker</span></h2>
+                <p>Before using a Live SIM Tracker, make sure you have the right information and access. A few simple checks can save time and help you get accurate results. These steps also protect your privacy and keep your personal data secure.</p>
+                
+                <h3>Mobile Number</h3>
+                <p>Start with the correct registered mobile number. Enter the full number, including the country code if required. A small typing mistake can return incorrect results or no information at all. Double-check the number before starting your search to improve accuracy.</p>
+
+                <h3>Registered SIM</h3>
+                <p>Your SIM card should be active and properly registered with your network operator. In many countries, users must complete SIM verification before using mobile services. An inactive, blocked, or unregistered SIM may not appear in authorised databases.</p>
+                
+                <h3>Authorized Access</h3>
+                <p>Some mobile apps need permission to access features such as Location Services, contacts, or the device's network status. Only grant permissions that are necessary for the app to work. Review each request carefully before accepting it. Download tracking or verification apps only from trusted sources.</p>
+
+                <h3>Internet Connection</h3>
+                <p>Most Live SIM Tracker services need an active internet connection to check available records or communicate with online databases. A stable Wi-Fi or mobile data connection helps the service load information quickly and reduces errors during the search.</p>
+            </section>
+
+            <section>
+                <h2>Step-by-Step Guide to <span class="highlight">Checking SIM Information</span></h2>
+                <p>Checking your SIM details is simple when you use trusted sources and follow the correct steps. This process helps you verify your SIM, confirm your mobile network, and review basic device information.</p>
+                
+                <h3>Step 1: Verify SIM Registration</h3>
+                <p>The first step is to confirm that your SIM card is properly registered. An active and registered SIM connects to your mobile network without issues. Visit your network operator's official website or mobile app. Enter your registered mobile number if requested and follow the verification process.</p>
+
+                <h3>Step 2: Identify Your Network Operator</h3>
+                <p>Next, identify the network operator connected to your mobile number. You can check this through your carrier's app, your phone's network settings, or an authorised Mobile Number Lookup service. Knowing your network operator helps when troubleshooting connection issues.</p>
+
+                <h3>Step 3: Check Device Information</h3>
+                <p>Now review your device information. Open your phone's settings and find details such as the device model, software version, and IMEI number. These details help identify your device if you contact customer support or report a lost phone.</p>
+
+                <h3>Step 4: Use Built-in Phone Features</h3>
+                <p>Modern smartphones include tools that help you manage your SIM and device safely. On Android, use Google Find My Device to locate your phone. On iPhone, use Apple Find My to view its location or play a sound. These built-in features offer greater security than unknown third-party services.</p>
+
+                <h3>Step 5: Protect Your SIM Information</h3>
+                <p>Protecting your SIM details is just as important as checking them. Keep your SIM registered with accurate information and report a lost or stolen SIM to your carrier immediately. Avoid sharing your mobile number or verification codes with unknown websites.</p>
+            </section>
+
+            <section>
+                <h2>Common Problems and <span class="highlight">Solutions</span></h2>
+                <p>Even when you use a trusted Live SIM Tracker, you may face occasional issues. Most problems have simple solutions. Understanding the cause helps you fix the issue faster and avoid unnecessary confusion.</p>
+                
+                <h3>SIM Information Not Found</h3>
+                <p>If no SIM details appear, first check that you entered the correct mobile number. A missing country code or typing error can prevent the system from finding a match. Also, make sure the SIM is active and registered with your network operator.</p>
+
+                <h3>Incorrect Registration Details</h3>
+                <p>Incorrect registration information may appear if your SIM records have not been updated. Review your account information through your mobile carrier's official website or app. If you find incorrect records, contact customer support and request an update.</p>
+
+                <h3>Network Errors</h3>
+                <p>A network error can stop a SIM Information Checker from displaying results. Poor internet connectivity or temporary server issues are common causes. Check your Wi-Fi or mobile data connection and refresh the page.</p>
+
+                <h3>Location Not Available</h3>
+                <p>Many users expect a Live SIM Tracker to display a phone's exact location. In most cases, this is not possible. A SIM card does not provide real-time GPS data or public location access. Use trusted tools like Google Find My Device or Apple Find My for locating your own phone.</p>
+            </section>
+
+            <section>
+                <h2>Privacy, Security, and <span class="highlight">Legal Considerations</span></h2>
+                <p>Protecting your personal information is just as important as checking your SIM details. Mobile networks use strong security measures to keep subscriber data safe. Understanding your rights and responsibilities helps you use a Live SIM Tracker safely and legally.</p>
+                
+                <h3>Why Privacy Matters</h3>
+                <p>Your SIM card connects to your digital identity. It links your mobile number, network account, and other important services. If someone gains unauthorised access to your SIM information, they may misuse your account or attempt fraud. Always protect your personal information and use only official websites.</p>
+
+                <h3>Legal Limits of SIM Tracking</h3>
+                <p>Many people believe they can track any SIM card online. In reality, privacy laws prevent public access to another person's live location or personal subscriber information without legal authority. Mobile carriers do not provide unrestricted public access to this information.</p>
+
+                <h3>Keeping Your SIM Secure</h3>
+                <p>Good mobile security starts with simple habits. Keep your SIM registered with accurate information and report a lost or stolen SIM card to your network operator immediately. Enable two-factor authentication and use a strong screen lock.</p>
+            </section>
+
+            <section>
+                <h2>Live SIM Tracker <span class="highlight">Myths vs Facts</span></h2>
+                <p>Many websites make bold claims about Live SIM Trackers. Understanding the facts helps you avoid scams and make informed decisions. The table below separates common myths from verified information.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Myth</th>
+                                <th>Fact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Any SIM can be tracked live.</td>
+                                <td>False. The public cannot track a SIM card's live location.</td>
+                            </tr>
+                            <tr>
+                                <td>A SIM card provides GPS location.</td>
+                                <td>False. A SIM card does not contain GPS hardware.</td>
+                            </tr>
+                            <tr>
+                                <td>All Live SIM Tracker websites are accurate.</td>
+                                <td>False. Many websites make unsupported claims.</td>
+                            </tr>
+                            <tr>
+                                <td>A Live SIM Tracker can reveal anyone's personal info.</td>
+                                <td>False. Privacy laws prevent public access to private data.</td>
+                            </tr>
+                            <tr>
+                                <td>Mobile carriers protect subscriber data.</td>
+                                <td>True. Carriers use strong security measures to safeguard info.</td>
+                            </tr>
+                            <tr>
+                                <td>SIM registration is the same as location tracking.</td>
+                                <td>False. Registration confirms ownership, not location.</td>
+                            </tr>
+                            <tr>
+                                <td>GPS tracking and SIM tracking work the same way.</td>
+                                <td>False. GPS uses satellites; SIM connects to mobile network.</td>
+                            </tr>
+                            <tr>
+                                <td>Official tools are more reliable than unknown websites.</td>
+                                <td>True. Services like Google Find My Device are secure and official.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </section>
 
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Monitor Live</h4>
-                    <p>Track live updates in real-time and receive alerts for any changes or activities.</p>
+            <section>
+                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+                <div class="faq-item">
+                    <div class="faq-q">What is a Live SIM Tracker?</div>
+                    <div class="faq-a">A Live SIM Tracker is a tool that checks SIM-related information, such as the network operator, SIM status, or registration details. It does not provide public access to a phone's real-time location.</div>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="faq-item">
+                    <div class="faq-q">Can I track any SIM card live?</div>
+                    <div class="faq-a">No. You cannot track any SIM card's live location through public websites or apps. Mobile carriers protect subscriber information under privacy laws.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is Live SIM Tracker free?</div>
+                    <div class="faq-a">Some services are free and provide basic information, such as the mobile carrier or SIM status. Always choose official mobile carriers or trusted services.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Can police track a SIM card?</div>
+                    <div class="faq-a">Law enforcement agencies may request location information from mobile carriers when authorised under applicable laws. Public users cannot access these tracking systems.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Does a SIM card contain GPS?</div>
+                    <div class="faq-a">No. A SIM card does not contain a GPS chip. GPS hardware is built into the smartphone and works with satellites to calculate position.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What is the difference between IMEI and IMSI?</div>
+                    <div class="faq-a">The IMEI identifies the physical device, while the IMSI identifies the mobile subscriber stored on the SIM card. Together, they maintain secure communication.</div>
+                </div>
+            </section>
 
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <h2 class="section-title">Frequently Asked <span class="highlight">Questions</span></h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>Is Live SIM Tracker legal to use?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                Yes, Live SIM Tracker operates within legal boundaries in most countries. It's designed for legitimate purposes like finding lost devices, monitoring family members, and business security. Always ensure you have proper authorization before tracking someone's SIM.
-            </div>
-        </div>
+            <section>
+                <h2>Final <span class="highlight">Thoughts</span></h2>
+                <p>A Live SIM Tracker helps users understand SIM-related information and verify basic network details. It is useful for checking SIM details and confirming the network operator. However, it is not a tool for publicly tracking someone's live location. Privacy should always come first. Use trusted services and follow local laws when checking SIM information.</p>
+            </section>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>How accurate is the location tracking?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                Our GPS tracking provides accuracy up to 5.2 meters in urban areas. The accuracy depends on network coverage, GPS signal strength, and environmental factors. In areas with strong signal, accuracy can be even better.
-            </div>
-        </div>
+            <!-- Legal Content Sections -->
+            <section id="legal-sections">
+                <div class="legal-box">
+                    <h2 id="about">About <span class="highlight">Us</span></h2>
+                    <h3>About Live Tracking PK</h3>
+                    <p>Welcome to Live Tracking PK. Live Tracking PK is an informational website that publishes educational content about SIM cards, mobile networks, device tracking, GPS technology, mobile security, and related topics. Our goal is to provide accurate, easy-to-understand, and well-researched information based on official sources whenever possible.</p>
+                    <p>We do not provide live location tracking, phone hacking, SIM hacking, surveillance services, or access to private subscriber information. Our content is created for educational and informational purposes only and is regularly reviewed for accuracy.</p>
+                    <p><strong>Website:</strong> https://livetrackingpk.github.io<br><strong>Contact:</strong> gullsher63127@gmail.com</p>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>What information can I track?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                You can track real-time location, owner details, network provider, signal strength, SIM registration status, and activity history. All information is updated in real-time for maximum accuracy.
-            </div>
-        </div>
+                    <h2 id="contact">Contact <span class="highlight">Us</span></h2>
+                    <p>If you have any questions, suggestions, or feedback, feel free to contact us. We aim to respond to all genuine enquiries as soon as possible.</p>
+                    <p><strong>Website:</strong> https://livetrackingpk.github.io<br><strong>Email:</strong> gullsher63127@gmail.com</p>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>Is my data secure?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                Absolutely. We use military-grade encryption (AES-256) to protect all data. Your tracking history and personal information are never shared with third parties. We comply with international data protection standards.
-            </div>
-        </div>
+                    <h2 id="privacy">Privacy <span class="highlight">Policy</span></h2>
+                    <p>Your privacy is important to us. Live Tracking PK does not collect personal information unless you voluntarily contact us. We may use cookies and third-party services, including Google AdSense and Google Analytics, to improve website performance and display relevant advertisements.</p>
+                    <p>Third-party vendors may use cookies to serve ads based on your previous visits to this website and other websites. We do not sell, rent, or share your personal information with third parties except where required by law. By using this website, you agree to this Privacy Policy.</p>
+                    <p><strong>For any privacy concerns, contact:</strong> gullsher63127@gmail.com</p>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>How often are locations updated?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                Location updates are provided in real-time, typically every 5-10 seconds. The frequency may vary based on network conditions and device settings. You'll always get the most recent available data.
-            </div>
-        </div>
+                    <h2 id="terms">Terms and <span class="highlight">Conditions</span></h2>
+                    <p>By using Live Tracking PK, you agree to these terms. The information on this website is provided for educational and informational purposes only. You agree not to misuse the website or rely on its content for illegal activities. We make reasonable efforts to keep our content accurate and updated but cannot guarantee that every article is complete or error-free. We reserve the right to update, modify, or remove content at any time without prior notice.</p>
 
-        <div class="faq-item">
-            <div class="faq-question">
-                <span>What networks are supported?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                Live SIM Tracker supports all major mobile networks including Zong, Jazz, Telenor, Ufone, and many international carriers. Check our supported networks list for complete details.
-            </div>
-        </div>
-    </section>
+                    <h2 id="disclaimer"><span class="highlight">Disclaimer</span></h2>
+                    <p>Live Tracking PK is an educational website. We do not provide: Live SIM tracking, Real-time phone location, Phone hacking, SIM hacking, Spy services, or Access to private subscriber data. All articles are published for educational and informational purposes only. Any references to tracking technologies explain how they work using legal and official methods. Users are responsible for complying with applicable laws and regulations in their country.</p>
 
-    <!-- Footer -->
+                    <h2 id="cookie">Cookie <span class="highlight">Policy</span></h2>
+                    <p>Live Tracking PK uses cookies to improve user experience and website performance. Cookies may be used by Google AdSense, Google Analytics, and for essential website functions. You can disable cookies through your browser settings at any time. By continuing to use this website, you agree to our use of cookies.</p>
+
+                    <h2>Sources and <span class="highlight">References</span></h2>
+                    <p>We strive to publish accurate and trustworthy information. Our content is researched using official and reputable sources whenever possible, including: GSMA, 3GPP, Google Android Help, Apple Support, Official Mobile Network Operators, Official Telecom Regulatory Authorities, and Device Manufacturer Documentation. Every effort is made to verify facts before publication.</p>
+
+                    <h2 id="dmca">DMCA / <span class="highlight">Copyright Policy</span></h2>
+                    <p>All original content published on Live Tracking PK is protected by copyright. You may not copy, reproduce, or republish our content without written permission. If you believe that any content on this website infringes your copyright, please send a DMCA notice to: gullsher63127@gmail.com. After verification, we will take appropriate action as quickly as possible.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <footer>
-        <p><strong>Live SIM Tracker</strong> - Real-Time Location & SIM Tracking Service</p>
-        <p>© 2024-2026 Live SIM Tracker. All rights reserved.</p>
-        <p>
-            <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Contact Support</a>
-        </p>
-        <p style="margin-top: 20px; font-size: 0.9em;">
-            ⚠️ Disclaimer: This service is for legitimate purposes only. Unauthorized tracking may be illegal. Always obtain proper authorization before tracking.
-        </p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#" class="footer-logo">📍 Live SIM Tracker</a>
+                    <p>Educational guide for mobile network and SIM information.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#guide">Guide</a></li>
+                        <li><a href="#tool">Tracker Tool</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                        <li><a href="#disclaimer">Disclaimer</a></li>
+                        <li><a href="#cookie">Cookie Policy</a></li>
+                        <li><a href="#dmca">DMCA Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Live Tracking PK. All rights reserved. | Pakistan's Trusted SIM Guide
+            </div>
+        </div>
     </footer>
 
     <script>
-        // FAQ Toggle Functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                faqItem.classList.toggle('active');
-            });
-        });
+        let currentStep = 1;
+        const totalSteps = 11;
+        const btnNext = document.getElementById('btnNext');
+        const btnPrev = document.getElementById('btnPrev');
+        const progressFill = document.getElementById('progressFill');
 
-        // Track Button Functionality
-        document.querySelector('.btn-primary').addEventListener('click', () => {
-            const phoneNumber = document.querySelector('.search-box input').value;
-            if (phoneNumber.trim()) {
-                alert('Tracking initiated for: ' + phoneNumber + '\n\nNote: This is a demo. In a real application, this would connect to a backend service.');
+        function updateUI() {
+            document.querySelectorAll('.question-group').forEach(g => g.classList.remove('active'));
+            if(currentStep <= 10) {
+                document.querySelector(`[data-q="${currentStep}"]`).classList.add('active');
             } else {
-                alert('Please enter a valid phone number');
+                document.getElementById('legalStep').classList.add('active');
             }
-        });
+            btnPrev.style.display = currentStep > 1 ? 'block' : 'none';
+            btnNext.innerText = currentStep === 11 ? 'Get Results' : 'Next Step';
+            progressFill.style.width = ((currentStep / totalSteps) * 100) + '%';
+        }
 
-        // Search Input Enter Key
-        document.querySelector('.search-box input').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                document.querySelector('.btn-primary').click();
+        btnNext.onclick = () => {
+            if(currentStep < 11) {
+                currentStep++;
+                updateUI();
+            } else {
+                if(!document.getElementById('q_agree').checked) { alert("Please agree to the terms."); return; }
+                startLoading();
             }
+        };
+
+        btnPrev.onclick = () => { if(currentStep > 1) { currentStep--; updateUI(); } };
+
+        function selectRadio(id) { document.getElementById(id).checked = true; }
+
+        function startLoading() {
+            document.getElementById('toolContent').style.display = 'none';
+            document.getElementById('toolLoading').style.display = 'block';
+            let time = 10;
+            const interval = setInterval(() => {
+                time--;
+                document.getElementById('timer').innerText = time;
+                if(time <= 0) { clearInterval(interval); showResults(); }
+            }, 1000);
+        }
+
+        function showResults() {
+            document.getElementById('toolLoading').style.display = 'none';
+            document.getElementById('toolResults').style.display = 'block';
+            const net = document.getElementById('q_net').value;
+            const content = document.getElementById('resultsContent');
+            const data = {
+                jazz: { title: "Jazz (Mobilink)", steps: ["Dial *111# for account info", "Use Jazz World App", "Visit official Jazz website"] },
+                telenor: { title: "Telenor", steps: ["Dial *710# for SIM info", "Use My Telenor App", "Contact Telenor Helpline 345"] },
+                zong: { title: "Zong", steps: ["Dial *8# for account details", "Use My Zong App", "Visit Zong official portal"] },
+                ufone: { title: "Ufone", steps: ["Dial *124# for SIM details", "Use My Ufone App", "Visit Ufone official site"] }
+            };
+            const selected = data[net] || data.jazz;
+            content.innerHTML = `<div class="method-card"><h4>Official Method for ${selected.title}</h4><ul>${selected.steps.map(s => `<li>${s}</li>`).join('')}</ul></div><p style="font-size:0.8em; color:#666;">Note: These are official legal methods. Unauthorized tracking is illegal.</p>`;
+        }
+
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.onclick = () => { q.parentElement.classList.toggle('active'); };
         });
     </script>
 </body>
